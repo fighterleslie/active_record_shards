@@ -155,7 +155,7 @@ module ActiveRecordShards
     end
 
     def shard_env
-      ActiveRecordShards.rails_env
+      self.try(:shard_env) || ActiveRecordShards.rails_env
     end
 
     if ActiveRecord::VERSION::MAJOR >= 4
